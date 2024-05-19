@@ -11,6 +11,69 @@ public class MyPlayer {
                 for (int z = 0; z < 4;z++){
                     if (x>=y && y>=z){
                         System.out.println(x+" " +" "+ y + " "+ z);
+                        System.out.println("resulting boards:");
+                        for (int t =x; t<4; t++){
+                            for (int r =y; r<4; r++) {
+                                for (int w = z; w < 4; r++) {
+                                    if (x>=y && y>=z){
+
+                                        System.out.println(x+" " +" "+ y + " "+ (z-1));
+                                        System.out.println(x+" " +" "+ y + " "+ z);
+                                    }
+                                }
+                            }
+                        }
+
+                        }
+                        //TODO make for loops to print out the possible boards
+//                        if(z>0&& x>=y && y>=z){
+//                            if(z>=1){
+//                                System.out.println(x+" " +" "+ y + " "+ (z-1));
+//
+//                            }
+//                            if(z>=2){
+//                                System.out.println(x+" " +" "+ y + " "+ (z-2));
+//
+//                            }
+//                            if (z>=3){
+//                                System.out.println(x+" " +" "+ y + " "+ (z-3));
+//
+//                            }
+//
+//
+//                        }
+//                        if (y>0 && z>0 && x>=y && y>=z){
+//                            if(z>=1&&y>=1){
+//                                System.out.println(x+" " +" "+ (y-1) + " "+ (z-1));
+//
+//                            }
+//                            if(z>=2&&y>=2){
+//                                System.out.println(x+" " +" "+ (y-2) + " "+ (z-2));
+//                            }
+//                            if (z>=3&&y>=3){
+//                                System.out.println(x+" " +" "+ (y-3) + " "+ (z-3));
+//
+//                            }
+//
+//
+//
+//                        }
+//                        if (x>1 &&y>0 && z>0 && x>=y && y>=z){
+//                            if(z>=1&&y>=1){
+//                                System.out.println((x-1)+" " +" "+ (y-1) + " "+ (z-1));
+//
+//                            }
+//                            if(z>=2&&y>=2){
+//                                System.out.println((x-2)+" " +" "+ (y-2) + " "+ (z-2));
+//                            }
+//
+//
+//
+//                        }
+                        System.out.println("");
+
+
+
 
                     }
 
@@ -25,7 +88,7 @@ public class MyPlayer {
         }
 
 
-    }
+
 
     public Point move(Chip[][] pBoard) {
 
