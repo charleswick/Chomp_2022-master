@@ -12,19 +12,67 @@ public class MyPlayer {
                     if (x>=y && y>=z){
                         System.out.println(x+" " +" "+ y + " "+ z);
                         System.out.println("resulting boards:");
-                        for (int t =x; t<4; t++){
-                            for (int r =y; r<4; r++) {
-                                for (int w = z; w < 4; r++) {
-                                    if (x>=y && y>=z){
+                        int a = x;
+                        int b = y;
+                        int c = z;
+                        while (c>=1){
+                            c=c-1;
 
-                                        System.out.println(x+" " +" "+ y + " "+ (z-1));
-                                        System.out.println(x+" " +" "+ y + " "+ z);
-                                    }
-                                }
+                            System.out.println (x+" " +" "+ y + " "+ (c));
+
+                        }
+                        c=z;
+                        while (b>=1&& c>=1){
+                            if(b==c){
+                                b=b-1;
+                                c=c-1;
+                                System.out.println (x+" " +" "+ b + " "+ (c));
+
                             }
-                        }
+                            if(b>c){
+                                b=b-1;
+                                System.out.println (x+" " +" "+ b + " "+ (c));
+
+
+                            }
 
                         }
+                        System.out.println("333333333");
+                        b=y;
+                        c=z;
+                        System.out.println("a: "+ a );
+                        System.out.println("b: "+ b );
+
+                        System.out.println("c: "+ c );
+
+                        while (a>=2&&b>=1&&c>=1){
+                           // System.out.println("intifate");
+                            if(a>b){
+                                System.out.println("aaaaa");
+                                a=a-1;
+                                System.out.println (a+" " +" "+ b + " "+ (c));
+
+                            }
+
+
+                            if(a==b && a==c){
+                                System.out.println("equal");
+                                a=a-1;
+                                b=b-1;
+                                c=c-1;
+                                System.out.println (a+" " +" "+ b + " "+ (c));
+
+                            }
+
+
+                        }
+
+
+
+
+
+
+                    }
                         //TODO make for loops to print out the possible boards
 //                        if(z>0&& x>=y && y>=z){
 //                            if(z>=1){
