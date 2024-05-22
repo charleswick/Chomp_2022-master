@@ -37,18 +37,18 @@ public class MyPlayer {
                             }
 
                         }
-                        System.out.println("333333333");
+
                         b=y;
                         c=z;
-                        System.out.println("a: "+ a );
-                        System.out.println("b: "+ b );
-
-                        System.out.println("c: "+ c );
+//                        System.out.println("a: "+ a );
+//                        System.out.println("b: "+ b );
+//
+//                        System.out.println("c: "+ c );
 
                         while (a>=2&&b>=1&&c>=1){
-                           // System.out.println("intifate");
+
                             if(a>b){
-                                System.out.println("aaaaa");
+
                                 a=a-1;
                                 System.out.println (a+" " +" "+ b + " "+ (c));
 
@@ -56,10 +56,16 @@ public class MyPlayer {
 
 
                             if(a==b && a==c){
-                                System.out.println("equal");
+
                                 a=a-1;
                                 b=b-1;
                                 c=c-1;
+                                System.out.println (a+" " +" "+ b + " "+ (c));
+
+                            }
+                            if(a==b && b>c){
+                                a=a-1;
+                                b=b-1;
                                 System.out.println (a+" " +" "+ b + " "+ (c));
 
                             }
