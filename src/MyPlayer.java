@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MyPlayer {
     public Chip[][] gameBoard;
@@ -11,103 +12,111 @@ public class MyPlayer {
     public ArrayList<int[]> deathBoards = new ArrayList<int[]>();
     public ArrayList<int[]> resultingBoards = new ArrayList<int[]>();
     public ArrayList<int[]> tempBoards = new ArrayList<int[]>();
-
-
-
-
-
+    public ArrayList<int[]> finalTempBoards = new ArrayList<int[]>();
 
 
 
     public MyPlayer() {
         columns = new int[10];
-        deathBoards.add(new int[]{1,0,0});
-        for (int x =1; x<4; x++){
-            for (int y =0; y<4; y++) {
-                for (int z = 0; z < 4;z++){
-                    if (x>=y && y>=z){
+        deathBoards.add(new int[]{1, 0, 0});
+        for (int x = 1; x < 4; x++) {
+            for (int y = 0; y < 4; y++) {
+                for (int z = 0; z < 4; z++) {
+                    if (x >= y && y >= z) {
                         boolean isDeathBoard = false;
-                        System.out.println(x+" " +" "+ y + " "+ z);
+                        System.out.println(x + " " + " " + y + " " + z);
                         System.out.println("resulting boards:");
                         int a = x;
                         int b = y;
                         int c = z;
-                        while (c>=1){
-                            c=c-1;
+                        while (c >= 1) {
+                            c = c - 1;
 
-                            System.out.println (x+" " +" "+ y + " "+ (c));
-                            tempBoards.add(new int[]{a,b,c});
-
+                            System.out.println(x + " " + " " + y + " " + (c));
+                            tempBoards.add(new int[]{a, b, c});
 
 
                         }
-                        c=z;
-                        while (b>=1&& c>=1){
-                            if(b==c){
-                                b=b-1;
-                                c=c-1;
-                                System.out.println (x+" " +" "+ b + " "+ (c));
-                                tempBoards.add(new int[]{a,b,c});
+                        c = z;
+                        while (b >= 1 && c >= 1) {
+                            if (b == c) {
+                                b = b - 1;
+                                c = c - 1;
+                                System.out.println(x + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
 
 
                             }
-                            if(b>c){
-                                b=b-1;
+                            if (b > c) {
+                                b = b - 1;
 
-                                System.out.println (x+" " +" "+ b + " "+ (c));
-                                tempBoards.add(new int[]{a,b,c});
-
+                                System.out.println(x + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
 
 
                             }
 
                         }
 
-                        b=y;
-                        c=z;
-//                        System.out.println("a: "+ a );
-//                        System.out.println("b: "+ b );
+                        b = y;
+                        c = z;
+                        while(a>=2 && b==0 &&c==0){
+                            a=a-1;
+                            System.out.println(a + " " + " " + b + " " + (c));
+                            tempBoards.add(new int[]{a, b, c});
+
+                        }
 //
-//                        System.out.println("c: "+ c );
 
-                        while (a>=2&&b>=1&&c>=1){
+                        while (a >= 2 && b >= 1 && c >= 1) {
 
-                            if(a>b){
+                            if (a > b) {
 
-                                a=a-1;
-                                System.out.println (a+" " +" "+ b + " "+ (c));
-                                tempBoards.add(new int[]{a,b,c});
+                                a = a - 1;
+                                System.out.println(a + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
 
 
                             }
 
 
-                            if(a==b && a==c){
+                            if (a == b && a == c) {
 
-                                a=a-1;
-                                b=b-1;
-                                c=c-1;
-                                System.out.println (a+" " +" "+ b + " "+ (c));
+                                a = a - 1;
+                                b = b - 1;
+                                c = c - 1;
+                                System.out.println(a + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
+
 
                             }
-                            if(a==b && b>c){
-                                a=a-1;
-                                b=b-1;
-                                System.out.println (a+" " +" "+ b + " "+ (c));
+                            if (a == b && b > c) {
+                                a = a - 1;
+                                b = b - 1;
+                                System.out.println(a + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
+
 
                             }
 
 
                         }
-                        while (a>=2&&b>=1&&c==0) {
+                        while (a >= 2 && b >= 1 && c == 0) {
 
 
                             boolean doOnce = false;
-                            if ((a > b && b == 1 && doOnce) == false) {
+                            if ((a > b && b == 1 && doOnce == false)) {
                                 doOnce = true;
                                 System.out.println(a + " " + " " + (b - 1) + " " + (c));
-                                a = a - 1;
-                                System.out.println(a + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, (b - 1), c});
+
+
+                              //  a = a - 1;
+
+                                System.out.println((a-1) + " " + " " + b + " " + (c));
+
+                                tempBoards.add(new int[]{(a-1), b, c});
+                                a=a-1;
 
 
                             }
@@ -115,135 +124,83 @@ public class MyPlayer {
 
                                 a = a - 1;
                                 System.out.println(a + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
 
 
                             }
 
                             if (a == b) {
+
                                 b = b - 1;
                                 System.out.println(a + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
 
 
                             }
 
-//                            while (a==3 &&b==1&&c==0){
-//                                if(a>b){
-//
-//                                    a=a-1;
-//                                    System.out.println (a+" " +" "+ b + " "+ (c));
-//
-//
-//
-//                                }
-//
-//
-//                                if(a==b && a==c){
-//
-//                                    a=a-1;
-//                                    b=b-1;
-//                                    c=c-1;
-//                                    System.out.println (a+" " +" "+ b + " "+ (c));
-//
-//                                }
-//                                if(a==b && b>c){
-//                                    a=a-1;
-//                                    b=b-1;
-//                                    System.out.println (a+" " +" "+ b + " "+ (c));
-//
-//                                }
-//                                if(a>b && b>c){
-//                                    a=a-1;
-//                                    b=b-1;
-//                                    System.out.println (a+" " +" "+ b + " "+ (c));
-//
-//
-//                                }
-//
-//                            }
-
 
                         }
-                        while(a==1&&b==1&&c==0){
-                            b=b-1;
+                        while (a == 1 && b == 1 && c == 0) {
+                            b = b - 1;
                             System.out.println(a + " " + " " + b + " " + (c));
+                            tempBoards.add(new int[]{a, b, c});
 
 
                         }
-                        while(a==2&&b==0&&c==0){
-                            a=a-1;
+                        while (a == 2 && b == 0 && c == 0) {
+                            a = a - 1;
                             System.out.println(a + " " + " " + b + " " + (c));
+                            tempBoards.add(new int[]{a, b, c});
 
 
                         }
-
-
-
 
 
 
 
                     }
-
-//                        if(z>0&& x>=y && y>=z){
-//                            if(z>=1){
-//                                System.out.println(x+" " +" "+ y + " "+ (z-1));
-//
-//                            }
-//                            if(z>=2){
-//                                System.out.println(x+" " +" "+ y + " "+ (z-2));
-//
-//                            }
-//                            if (z>=3){
-//                                System.out.println(x+" " +" "+ y + " "+ (z-3));
-//
-//                            }
-//
-//
-//                        }
-//                        if (y>0 && z>0 && x>=y && y>=z){
-//                            if(z>=1&&y>=1){
-//                                System.out.println(x+" " +" "+ (y-1) + " "+ (z-1));
-//
-//                            }
-//                            if(z>=2&&y>=2){
-//                                System.out.println(x+" " +" "+ (y-2) + " "+ (z-2));
-//                            }
-//                            if (z>=3&&y>=3){
-//                                System.out.println(x+" " +" "+ (y-3) + " "+ (z-3));
-//
-//                            }
-//
-//
-//
-//                        }
-//                        if (x>1 &&y>0 && z>0 && x>=y && y>=z){
-//                            if(z>=1&&y>=1){
-//                                System.out.println((x-1)+" " +" "+ (y-1) + " "+ (z-1));
-//
-//                            }
-//                            if(z>=2&&y>=2){
-//                                System.out.println((x-2)+" " +" "+ (y-2) + " "+ (z-2));
-//                            }
-//
-//
-//
-//                        }
-                        System.out.println("");
-
-
-
-
+                    for(int q=0; q<tempBoards.size();q++){
+                        int[] g=tempBoards.get(q);
+                        System.out.println(Arrays.toString(g));
+                    }
+                    System.out.println("ytytytytyty");
+                    for(int q=0; q<deathBoards.size();q++){
+                        int[] r=deathBoards.get(q);
+                        System.out.println(Arrays.toString(r));
                     }
 
 
+                    boolean b = tempBoards.retainAll(deathBoards);
+                    tempBoards.retainAll(deathBoards);
+                    System.out.println(b);
+                    System.out.println("aggaggagagga");
+                    for(int q=0; q<tempBoards.size();q++){
+                      int[] g=tempBoards.get(q);
+                       System.out.println(Arrays.toString(g));
+                   }
+                    System.out.println("----------");
+                    for(int q=0; q<deathBoards.size();q++){
+                        int[] r=deathBoards.get(q);
+                        System.out.println(Arrays.toString(r));
+                    }
 
+//
+                    System.out.println("");
 
 
                 }
 
+
             }
 
+
         }
+
+
+    }
+
+
+
 
 
 
