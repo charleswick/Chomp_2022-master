@@ -7,17 +7,26 @@ public class MyPlayer {
     public int[] columns;
 
 
-    public ArrayList<Array> lifeBoards = new ArrayList<Array>();
-    public ArrayList<Array> deathBoards = new ArrayList<Array>();
+    public ArrayList<int[]> lifeBoards = new ArrayList<int[]>();
+    public ArrayList<int[]> deathBoards = new ArrayList<int[]>();
+    public ArrayList<int[]> resultingBoards = new ArrayList<int[]>();
+    public ArrayList<int[]> tempBoards = new ArrayList<int[]>();
+
+
+
+
+
 
 
 
     public MyPlayer() {
         columns = new int[10];
+        deathBoards.add(new int[]{1,0,0});
         for (int x =1; x<4; x++){
             for (int y =0; y<4; y++) {
                 for (int z = 0; z < 4;z++){
                     if (x>=y && y>=z){
+                        boolean isDeathBoard = false;
                         System.out.println(x+" " +" "+ y + " "+ z);
                         System.out.println("resulting boards:");
                         int a = x;
@@ -27,6 +36,8 @@ public class MyPlayer {
                             c=c-1;
 
                             System.out.println (x+" " +" "+ y + " "+ (c));
+                            tempBoards.add(new int[]{a,b,c});
+
 
 
                         }
@@ -36,12 +47,16 @@ public class MyPlayer {
                                 b=b-1;
                                 c=c-1;
                                 System.out.println (x+" " +" "+ b + " "+ (c));
+                                tempBoards.add(new int[]{a,b,c});
+
 
                             }
                             if(b>c){
                                 b=b-1;
 
                                 System.out.println (x+" " +" "+ b + " "+ (c));
+                                tempBoards.add(new int[]{a,b,c});
+
 
 
                             }
@@ -61,6 +76,8 @@ public class MyPlayer {
 
                                 a=a-1;
                                 System.out.println (a+" " +" "+ b + " "+ (c));
+                                tempBoards.add(new int[]{a,b,c});
+
 
                             }
 
