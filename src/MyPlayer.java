@@ -62,6 +62,7 @@ public class MyPlayer {
                         c = z;
                         while(a>=2 && b==0 &&c==0){
                             a=a-1;
+
                             System.out.println(a + " " + " " + b + " " + (c));
                             tempBoards.add(new int[]{a, b, c});
 
@@ -141,6 +142,7 @@ public class MyPlayer {
                             if(a>b){
                                 a=a-1;
                                 System.out.println(a + " " + " " + b + " " + (c));
+                                tempBoards.add(new int[]{a, b, c});
 
 
 
@@ -167,31 +169,45 @@ public class MyPlayer {
 
 
                     }
-                    for(int q=0; q<tempBoards.size();q++){
-                        int[] g=tempBoards.get(q);
-                        System.out.println(Arrays.toString(g));
-                    }
-                    System.out.println("ytytytytyty");
-                    for(int q=0; q<deathBoards.size();q++){
-                        int[] r=deathBoards.get(q);
-                        System.out.println(Arrays.toString(r));
-                    }
+//                    for(int q=0; q<tempBoards.size();q++){
+//                        int[] g=tempBoards.get(q);
+//                        System.out.println(Arrays.toString(g));
+//                    }
+//                    System.out.println("ytytytytyty");
+//                    for(int q=0; q<deathBoards.size();q++){
+//                        int[] r=deathBoards.get(q);
+//                        System.out.println(Arrays.toString(r));
+//                    }
+//
+//
+//                    boolean b = tempBoards.retainAll(deathBoards);
+//                    tempBoards.retainAll(deathBoards);
+//                    System.out.println(b);
+//                    System.out.println("aggaggagagga");
+//                    for(int q=0; q<tempBoards.size();q++){
+//                      int[] g=tempBoards.get(q);
+//                       System.out.println(Arrays.toString(g));
+//                   }
+//                    System.out.println("----------");
+//                    for(int q=0; q<deathBoards.size();q++){
+//                        int[] r=deathBoards.get(q);
+//                        System.out.println(Arrays.toString(r));
+//                    }
+                    for (int u =0; u< tempBoards.size(); u++){
+                        for (int g =0; g<deathBoards.size(); g++){
 
+                            if(tempBoards.get(u)[0]==deathBoards.get(g)[0]&&tempBoards.get(u)[1]==deathBoards.get(g)[1]&&tempBoards.get(u)[2]==deathBoards.get(g)[2]){
+                                System.out.println("the board is a life board");
+                                lifeBoards.add(new int[]{x,y,z});
+                            }
+                            else {
+                                deathBoards.add(new int[]{x,y,z});
+                               //THE PROBLEM ARISES HERE
+                            }
 
-                    boolean b = tempBoards.retainAll(deathBoards);
-                    tempBoards.retainAll(deathBoards);
-                    System.out.println(b);
-                    System.out.println("aggaggagagga");
-                    for(int q=0; q<tempBoards.size();q++){
-                      int[] g=tempBoards.get(q);
-                       System.out.println(Arrays.toString(g));
-                   }
-                    System.out.println("----------");
-                    for(int q=0; q<deathBoards.size();q++){
-                        int[] r=deathBoards.get(q);
-                        System.out.println(Arrays.toString(r));
+                        }
+
                     }
-
 //
                     System.out.println("");
 
