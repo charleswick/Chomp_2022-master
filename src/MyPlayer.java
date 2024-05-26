@@ -1,8 +1,16 @@
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class MyPlayer {
     public Chip[][] gameBoard;
     public int[] columns;
+
+
+    public ArrayList<Array> lifeBoards = new ArrayList<Array>();
+    public ArrayList<Array> deathBoards = new ArrayList<Array>();
+
+
 
     public MyPlayer() {
         columns = new int[10];
@@ -20,6 +28,7 @@ public class MyPlayer {
 
                             System.out.println (x+" " +" "+ y + " "+ (c));
 
+
                         }
                         c=z;
                         while (b>=1&& c>=1){
@@ -31,6 +40,7 @@ public class MyPlayer {
                             }
                             if(b>c){
                                 b=b-1;
+
                                 System.out.println (x+" " +" "+ b + " "+ (c));
 
 
@@ -72,6 +82,70 @@ public class MyPlayer {
 
 
                         }
+                        while (a>=2&&b>=1&&c==0) {
+
+
+                            boolean doOnce = false;
+                            if ((a > b && b == 1 && doOnce) == false) {
+                                doOnce = true;
+                                System.out.println(a + " " + " " + (b - 1) + " " + (c));
+                                a = a - 1;
+                                System.out.println(a + " " + " " + b + " " + (c));
+
+
+                            }
+                            if ((a > b && b == 1 && doOnce) == true) {
+
+                                a = a - 1;
+                                System.out.println(a + " " + " " + b + " " + (c));
+
+
+                            }
+
+                            if (a == b) {
+                                b = b - 1;
+                                System.out.println(a + " " + " " + b + " " + (c));
+
+
+                            }
+
+//                            while (a==3 &&b==1&&c==0){
+//                                if(a>b){
+//
+//                                    a=a-1;
+//                                    System.out.println (a+" " +" "+ b + " "+ (c));
+//
+//
+//
+//                                }
+//
+//
+//                                if(a==b && a==c){
+//
+//                                    a=a-1;
+//                                    b=b-1;
+//                                    c=c-1;
+//                                    System.out.println (a+" " +" "+ b + " "+ (c));
+//
+//                                }
+//                                if(a==b && b>c){
+//                                    a=a-1;
+//                                    b=b-1;
+//                                    System.out.println (a+" " +" "+ b + " "+ (c));
+//
+//                                }
+//                                if(a>b && b>c){
+//                                    a=a-1;
+//                                    b=b-1;
+//                                    System.out.println (a+" " +" "+ b + " "+ (c));
+//
+//
+//                                }
+//
+//                            }
+
+
+                        }
 
 
 
@@ -79,7 +153,7 @@ public class MyPlayer {
 
 
                     }
-                        //TODO make for loops to print out the possible boards
+
 //                        if(z>0&& x>=y && y>=z){
 //                            if(z>=1){
 //                                System.out.println(x+" " +" "+ y + " "+ (z-1));
