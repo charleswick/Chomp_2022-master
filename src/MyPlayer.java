@@ -102,10 +102,11 @@ public class MyPlayer {
 
                         }
                         while (a >= 2 && b >= 1 && c == 0) {
-
+                           // System.out.println("or");
 
                             boolean doOnce = false;
-                            if ((a > b && b == 1 && doOnce == false)) {
+                            if (a > b && b == 1 && !doOnce) {
+                                System.out.println(doOnce);
                                 doOnce = true;
                                 System.out.println(a + " " + " " + (b - 1) + " " + (c));
                                 tempBoards.add(new int[]{a, (b - 1), c});
@@ -134,6 +135,13 @@ public class MyPlayer {
                                 b = b - 1;
                                 System.out.println(a + " " + " " + b + " " + (c));
                                 tempBoards.add(new int[]{a, b, c});
+
+
+                            }
+                            if(a>b){
+                                a=a-1;
+                                System.out.println(a + " " + " " + b + " " + (c));
+
 
 
                             }
