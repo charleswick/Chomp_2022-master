@@ -246,7 +246,7 @@ public class MyPlayer {
             int[] g = lifeBoards.get(q);
             System.out.println(Arrays.toString(g));
         }
-                    System.out.println("ytytytytyty");
+                    System.out.println("Death boards:");
                     for(int q=0; q<deathBoards.size();q++){
                         int[] r=deathBoards.get(q);
                         System.out.println(Arrays.toString(r));
