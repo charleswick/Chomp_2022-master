@@ -11,7 +11,6 @@ public class MyPlayer {
     public ArrayList<int[]> lifeBoards = new ArrayList<int[]>();
     public ArrayList<int[]> deathBoards = new ArrayList<int[]>();
     public ArrayList<int[]> resultingBoards = new ArrayList<int[]>();
-    public ArrayList<int[]> tempBoards = new ArrayList<int[]>();
     public ArrayList<int[]> finalTempBoards = new ArrayList<int[]>();
 
 
@@ -25,6 +24,8 @@ public class MyPlayer {
                     if (x >= y && y >= z) {
                         boolean isDeathBoard = false;
                         System.out.println(x + " " + " " + y + " " + z);
+                        ArrayList<int[]> tempBoards = new ArrayList<int[]>();
+
                         System.out.println("resulting boards:");
                         int a = x;
                         int b = y;
@@ -60,8 +61,8 @@ public class MyPlayer {
 
                         b = y;
                         c = z;
-                        while(a>=2 && b==0 &&c==0){
-                            a=a-1;
+                        while (a >= 2 && b == 0 && c == 0) {
+                            a = a - 1;
 
                             System.out.println(a + " " + " " + b + " " + (c));
                             tempBoards.add(new int[]{a, b, c});
@@ -103,7 +104,7 @@ public class MyPlayer {
 
                         }
                         while (a >= 2 && b >= 1 && c == 0) {
-                           // System.out.println("or");
+                            // System.out.println("or");
 
                             boolean doOnce = false;
                             if (a > b && b == 1 && !doOnce) {
@@ -113,12 +114,12 @@ public class MyPlayer {
                                 tempBoards.add(new int[]{a, (b - 1), c});
 
 
-                              //  a = a - 1;
+                                //  a = a - 1;
 
-                                System.out.println((a-1) + " " + " " + b + " " + (c));
+                                System.out.println((a - 1) + " " + " " + b + " " + (c));
 
-                                tempBoards.add(new int[]{(a-1), b, c});
-                                a=a-1;
+                                tempBoards.add(new int[]{(a - 1), b, c});
+                                a = a - 1;
 
 
                             }
@@ -139,11 +140,10 @@ public class MyPlayer {
 
 
                             }
-                            if(a>b){
-                                a=a-1;
+                            if (a > b) {
+                                a = a - 1;
                                 System.out.println(a + " " + " " + b + " " + (c));
                                 tempBoards.add(new int[]{a, b, c});
-
 
 
                             }
@@ -166,13 +166,10 @@ public class MyPlayer {
                         }
 
 
-
-
-                    }
-//                    for(int q=0; q<tempBoards.size();q++){
-//                        int[] g=tempBoards.get(q);
-//                        System.out.println(Arrays.toString(g));
-//                    }
+                        for (int q = 0; q < tempBoards.size(); q++) {
+                            int[] g = tempBoards.get(q);
+                            System.out.println(Arrays.toString(g));
+                        }
 //                    System.out.println("ytytytytyty");
 //                    for(int q=0; q<deathBoards.size();q++){
 //                        int[] r=deathBoards.get(q);
@@ -193,20 +190,24 @@ public class MyPlayer {
 //                        int[] r=deathBoards.get(q);
 //                        System.out.println(Arrays.toString(r));
 //                    }
-                    for (int u =0; u< tempBoards.size(); u++){
-                        for (int g =0; g<deathBoards.size(); g++){
+//                    for (){}
+                        for (int u = 0; u < tempBoards.size(); u++) {
 
-                            if(tempBoards.get(u)[0]==deathBoards.get(g)[0]&&tempBoards.get(u)[1]==deathBoards.get(g)[1]&&tempBoards.get(u)[2]==deathBoards.get(g)[2]){
-                                System.out.println("the board is a life board");
-                                lifeBoards.add(new int[]{x,y,z});
-                            }
-                            else {
-                                deathBoards.add(new int[]{x,y,z});
-                               //THE PROBLEM ARISES HERE
+                            for (int g = 0; g < deathBoards.size(); g++) {
+                              //  System.out.println(Arrays.toString(deathBoards.get(g)));
+
+                                if (tempBoards.get(u)[0] == deathBoards.get(g)[0] && tempBoards.get(u)[1] == deathBoards.get(g)[1] && tempBoards.get(u)[2] == deathBoards.get(g)[2]) {
+                                    System.out.println("the board is a life board");
+                                    lifeBoards.add(new int[]{x, y, z});
+                                } else {
+                                    //deathBoards.add(new int[]{x, y, z});
+                                    //THE PROBLEM ARISES HERE
+                                    //System.out.println("iisye?");
+                                }
+
                             }
 
                         }
-
                     }
 //
                     System.out.println("");
@@ -219,6 +220,16 @@ public class MyPlayer {
 
 
         }
+        System.out.println("life borads ");
+        for (int q = 0; q < lifeBoards.size(); q++) {
+            int[] g = lifeBoards.get(q);
+            System.out.println(Arrays.toString(g));
+        }
+                    System.out.println("ytytytytyty");
+                    for(int q=0; q<deathBoards.size();q++){
+                        int[] r=deathBoards.get(q);
+                        System.out.println(Arrays.toString(r));
+                    }
 
 
     }
