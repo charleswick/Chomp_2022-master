@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class MyPlayer {
     public Chip[][] gameBoard;
     public int[] columns;
+    public int x,y,z;
 
 
     public ArrayList<int[]> lifeBoards = new ArrayList<int[]>();
@@ -268,9 +269,33 @@ public class MyPlayer {
         gameBoard = pBoard;
         int column = 0;
         int row = 0;
+       // if x == 3, move column to 1
+        // if y == 3, move column to 2
+        // if y == 2, row is 2
+        // if y == 1, row is 1
+        // if y ==0, row is 0
+        //TODO make best x and best y variables
+        if (x ==3){
+            column=2;
 
-        row = 1;
-        column = 1;
+        }
+        if (y ==3){
+            column=3;
+
+        }
+        if (y==2){
+            row = 3;
+        }
+        if (y ==1){
+            row = 2;
+        }
+        if (y==0){
+            row = 1;
+        }
+        System.out.println(row);
+        System.out.println(column);
+//        row = 1;
+//        column = 1;
 
         /***
          * This code will run each time the "MyPlayer" button is pressed.

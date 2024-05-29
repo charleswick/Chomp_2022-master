@@ -3,6 +3,7 @@ import java.awt.*;
 public class Chip {
     //variables
     public int xpos;
+    public int x,y,z;
     public int ypos;
     public int width;
     public int height;
