@@ -210,9 +210,7 @@ public class MyPlayer {
                                     isLifeBoard=true;
 
                                     System.out.println("Best move:"+tempBoards.get(u)[0]+""+tempBoards.get(u)[1]+""+tempBoards.get(u)[2]);
-                                    bestX=tempBoards.get(u)[0];
-                                    bestY=tempBoards.get(u)[1];
-                                    bestZ=tempBoards.get(u)[2];
+
 
 
 
@@ -227,6 +225,7 @@ public class MyPlayer {
                             }
 
                         }
+
                         if(isLifeBoard==false){
                             deathBoards.add(new int[]{x, y, z});
 
@@ -248,7 +247,7 @@ public class MyPlayer {
 
 
         }
-        System.out.println("life borads ");
+        System.out.println("life boards ");
         for (int q = 0; q < lifeBoards.size(); q++) {
             int[] g = lifeBoards.get(q);
             System.out.println(Arrays.toString(g));
@@ -284,6 +283,12 @@ public class MyPlayer {
         if (bestX ==3){
             column=1;
 
+        }
+        if(bestX ==2){
+            column=0;
+        }
+        if(bestX == 1){
+            column = 0;
         }
         if (bestY ==3){
             column=2;
