@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class MyPlayer {
     public Chip[][] gameBoard;
     public int[] columns;
-    public int x,y,z;
+    public int bestX,bestY,bestZ;
 
 
     public ArrayList<int[]> lifeBoards = new ArrayList<int[]>();
@@ -210,6 +210,12 @@ public class MyPlayer {
                                     isLifeBoard=true;
 
                                     System.out.println("Best move:"+tempBoards.get(u)[0]+""+tempBoards.get(u)[1]+""+tempBoards.get(u)[2]);
+                                    bestX=tempBoards.get(u)[0];
+                                    bestY=tempBoards.get(u)[1];
+                                    bestZ=tempBoards.get(u)[2];
+
+
+
                                 }
 //                                else {
 //                                    //deathBoards.add(new int[]{x, y, z});
@@ -275,23 +281,24 @@ public class MyPlayer {
         // if y == 1, row is 1
         // if y ==0, row is 0
         //TODO make best x and best y variables
-        if (x ==3){
+        if (bestX ==3){
+            column=1;
+
+        }
+        if (bestY ==3){
             column=2;
 
         }
-        if (y ==3){
-            column=3;
-
-        }
-        if (y==2){
-            row = 3;
-        }
-        if (y ==1){
+        if (bestY==2){
             row = 2;
         }
-        if (y==0){
+        if (bestY ==1){
             row = 1;
         }
+        if (bestY==0){
+            row = 0;
+        }
+        System.out.println(bestX+""+bestY+""+bestZ);
         System.out.println(row);
         System.out.println(column);
 //        row = 1;
