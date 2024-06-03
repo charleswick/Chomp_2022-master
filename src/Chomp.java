@@ -112,6 +112,8 @@ public class Chomp implements Runnable, MouseListener {
                 }
             }
 
+
+
         }
 
 
@@ -252,6 +254,9 @@ public class Chomp implements Runnable, MouseListener {
                 gameOver = false;
             }
         });
+
+
+
 
 
         //newGame.setPreferredSize(new Dimension(150,50));
@@ -395,6 +400,7 @@ public class Chomp implements Runnable, MouseListener {
         }
 
     }
+
 
     @Override
     public void mousePressed(MouseEvent e) {
